@@ -7,13 +7,12 @@ import { signInSuccess } from './actions';
 
 export function* signIn({ payload }) {
   const { email, password } = payload;
-  console.log(payload);
   const response = yield call(api.post, 'sessions', {
     email,
     password,
   });
 
-  const [token, user] = response.data;
+  const { token, user } = response.data;
 
   if (!user.provider) {
     console.tron.error('Usuário não é prestador');
@@ -24,4 +23,4 @@ export function* signIn({ payload }) {
 
   history.push('/dashboard');
 }
-export default all([takeLatest('@auth/SIGN_IN_REQUEST', signIn)]);
+export default all([takeLatest('@uth/SIGN_IN_REQUEST', signIn)]);
