@@ -6,15 +6,12 @@ import { Container, Content, Profile } from './styles';
 
 import Notifications from '~/components/Notifications';
 
-import logo from '~/assets/logo-purple.svg';
-
 export default function Header() {
   const profile = useSelector((state) => state.user.profile);
   return (
     <Container>
       <Content>
         <nav>
-          <img src={logo} alt="GoBarber" />
           <Link to="/dashboard">DASHBOARD</Link>
         </nav>
         <aside>
